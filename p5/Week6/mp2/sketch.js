@@ -1,4 +1,5 @@
 var myState = 0;
+var timer = 0 ;
 
 function setup() {
   // put setup code here
@@ -14,6 +15,12 @@ function draw() {
       background('gray');
       textSize(15)
       text("Who do I think is going to win the championship", 100, 100);
+
+      timer = tiner + 1 ;
+      if (timer > 200) {
+        myState = 1 ;
+        timer = 0 ;
+      }
       break;
 
     case 1:
