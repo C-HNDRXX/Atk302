@@ -12,7 +12,7 @@ function setup() {
 function draw() {
   background('red');
 
-rectangle(200, y, 100, 10) ;
+ellipse(200, y, 100, 10) ;
   vol = mic.getLevel(); // level is between 0 and 1
   vol = vol * 100; // you may need to change this
 
