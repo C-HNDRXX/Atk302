@@ -16,7 +16,7 @@ function draw() {
       textSize(15)
       text("Who do I think is going to win the championship", 100, 100);
 
-      timer = tiner + 1 ;
+      timer = timer + 1 ;
       if (timer > 200) {
         myState = 1 ;
         timer = 0 ;
