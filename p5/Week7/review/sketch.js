@@ -16,6 +16,7 @@ switch(myState) {
   break ;
 
   case 1:
+  text()
   break ;
 
 

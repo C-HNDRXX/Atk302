@@ -3,8 +3,8 @@ var myState = 0 ;
 
 function preload() {
   song1 = loadSound('assets/donkey.mp3');
-  song2 = loadsound('assests/skate.mp3') ;
-  song3 = loadsound('assests/thrill.mp3') ;
+  song2 = loadSound('assets/skate.mp3') ;
+  song3 = loadSound('assets/thrill.mp3') ;
 }
 
 function setup() {
@@ -32,17 +32,24 @@ switch(myState) {
   case 3:
   break;
 
-  case 3:
-  break;
-
   case 4:
+  song3.play();
+  myState = 5
+  break;
+
+  case 5:
   break;
 }
 
 }
-
 
 function mouseReleased() {
+  myState = myState + 1 ;
+  if (myState > 5) {
+    myState = 0 ;
+  }
 
-  song1.pause
+  song1.pause() ;
+  song2.pause() ;
+  song3.pause() ;
 }
