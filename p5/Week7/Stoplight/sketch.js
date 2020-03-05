@@ -22,8 +22,8 @@ circle(width/2, height/2-100,100,200) ;
     case 0:
       break;
 
-    case 1: // hanging out and listening to music state
-      break;
+    case 1:
+    break;
 
     case 2:
       break;
