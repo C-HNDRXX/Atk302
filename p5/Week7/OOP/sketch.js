@@ -1,33 +1,51 @@
-var myCar;
+var cars = [] ;
 
 function setup() {
   createCanvas(800, 800);
-  myCar = new Car();
+
+for (var i = 0 ; 1 < 20 ; i ++) {
+  cars.push(new Car());
+
+}
+
 }
 
 function draw() {
   background('lightblue');
 
-  myCar.display();
-  myCar.drive();
+for (var i = 0 ; 1 < cars.length ; i ++) {
+  cars[i].display();
+  cars[i].drive();
+}
+
 
 }
 
 // our Car class!!!!!
 function Car() {
   // atributes
-  this.x = 100;
+  this.pos = createVector(random(width), random(height));
+  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.r = random(255);
+  this.g = randon(255);
+  this.b = random(255);
 
   // methods
   this.display = function() {
-    rect(this.x, 100, 100, 100);
+    fill(this.r, this.g, this.b);
+    rect(this.pos.x, this.pos.y, 100, 100, 100);
+
   }
 
   this.drive = function() {
-    this.x = this.x + 5;
-    if (this.x > width) {
-      this.x = 0;
-    }
-
-
+    this.pos.add(this.vel);
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
   }
+
+
+}
+
+}
