@@ -11,9 +11,9 @@ function setup() {
 }
 
 function draw() {
-  background('lightblue');
+  background('green');
 
-  for (var i = 0; 1 < cars.length; i++) {
+  for (var i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].drive();
   }
