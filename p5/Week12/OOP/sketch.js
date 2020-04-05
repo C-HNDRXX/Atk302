@@ -1,6 +1,7 @@
 var cars = [];
 var frogPos;
 var myState = 0;
+var timer = 0;
 
 function setup() {
   createCanvas(800, 800);
@@ -18,30 +19,46 @@ function setup() {
 
 function draw() {
 
-  swtich(myState) {
+  switch(myState) {
 
     case 0: // menu
-      background('red');
+      background('green');
     fill('white');
     textSize(24);
     text("Welcome to my game!", width / 2, height / 2)
-
-    break;
+     break;
 
     case 1: // game state
+     game() ;
+     timer++ ;
+     if (timer > 5*60) {
+       myState = 3 ;
+     }
       break;
 
     case 2: // win state
+    background('blue')
+      text("Yay you won!", width / 2, height / 2)
       break;
 
     case 3: // lose
+    background('red')
+      text("You Lost!", width / 2, height / 2)
       break;
   }
 
 
 }
+function reset() {
+  timer = 0 ;
+
+  for (var i = 0; i < 20; i++) {
+    cars.push(new Car());
+  }
+}
 
 function game() {
+
 
 
   background('lightblue');
@@ -54,7 +71,9 @@ function game() {
 
     }
   }
-
+if (cars.length == 0) {
+  myState = 2 ;
+}
 
   // frog
   fill('green');
@@ -95,4 +114,21 @@ function Car() {
     if (this.pos.y < 0) this.pos.y = height;
   }
 
+}
+function mouseReleased(){
+  switch(myState) {
+    case 0 :
+    myState = 1 ;
+    break ;
+
+    case 2 :
+    reset() ;
+    myState = 0 ;
+    break ;
+
+    case 3 :
+    reset() ;
+    myState = 0 ;
+    break ;
+  }
 }
